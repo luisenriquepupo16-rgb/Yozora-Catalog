@@ -17,6 +17,6 @@
 
 ## Contacto
 
-Para soporte o consultas: [WhatsApp](https://wa.me/5352461405)
+Para soporte o consultas: [WhatsApp](https://wa.me/5351161405)
 
 Para mi querido primo, un regalo de cumpleaños. Espero que triunfes en todo aquello que te propongas.
