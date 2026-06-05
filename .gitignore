@@ -1,0 +1,14 @@
+# Carpetas con APKs experimentales/no publicables
+experimentales/
+otros/
+fallidos/
+temp/
+*.tmp
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
