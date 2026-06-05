@@ -2,173 +2,485 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yozora Catalog - Dreamer Apps</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Yozora Store</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
-            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 100%);
-            color: #f0f0f0;
-            min-height: 100vh;
-            padding: 20px;
+            font-family: 'Segoe UI', system-ui, -apple-system, Roboto, sans-serif;
+            background: #eef2f7;
+            color: #1e2a3a;
+            line-height: 1.5;
+            padding: 0 20px;
         }
-        
+
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
+            background: white;
+            border-radius: 0 0 24px 24px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
         }
-        
-        header {
-            text-align: center;
-            padding: 40px 20px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            margin-bottom: 40px;
+
+        /* Encabezado principal */
+        .main-header {
+            background: #1a5d8f;
+            color: white;
+            padding: 32px 32px 28px;
+            border-radius: 0 0 32px 32px;
+            margin-bottom: 32px;
         }
-        
-        h1 {
-            font-size: 3rem;
-            background: linear-gradient(135deg, #FFC0CB, #FF8C9E);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            margin-bottom: 10px;
+
+        .main-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 12px;
         }
-        
-        .subtitle {
-            color: #888;
-            font-size: 1.1rem;
+
+        .main-header p {
+            font-size: 1rem;
+            opacity: 0.9;
+            max-width: 700px;
         }
-        
-        .apps-grid {
+
+        /* Contenido interior */
+        .content {
+            padding: 0 32px 40px;
+        }
+
+        /* Secciones */
+        section {
+            margin-bottom: 48px;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: #1a5d8f;
+            border-left: 5px solid #1a5d8f;
+            padding-left: 18px;
+            margin-bottom: 24px;
+            font-weight: 600;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            color: #2c6e9e;
+            margin: 24px 0 16px 0;
+            font-weight: 600;
+        }
+
+        /* Pestañas */
+        .tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 28px;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 12px;
+        }
+
+        .tab-btn {
+            background: transparent;
+            border: none;
+            padding: 10px 24px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #4a627a;
+            cursor: pointer;
+            border-radius: 40px;
+            transition: all 0.2s;
+        }
+
+        .tab-btn.active {
+            background: #1a5d8f;
+            color: white;
+        }
+
+        .tab-btn:hover:not(.active) {
+            background: #e2e8f0;
+        }
+
+        /* Barra de búsqueda y filtros */
+        .search-filter-bar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+
+        .search-box {
+            flex: 2;
+            min-width: 200px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 12px 18px;
+            border: 1px solid #cbd5e1;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            background: white;
+        }
+
+        .filter-box select {
+            padding: 12px 18px;
+            border: 1px solid #cbd5e1;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            background: white;
+            cursor: pointer;
+        }
+
+        /* Grid de tarjetas estilo Yu-Gi-Oh */
+        .cards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 24px;
-            margin-bottom: 40px;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 28px;
+            margin-top: 16px;
         }
-        
-        .app-card {
-            background: rgba(255,255,255,0.05);
-            backdrop-filter: blur(10px);
+
+        /* Tarjeta - como carta de Yu-Gi-Oh */
+        .card {
+            background: #1a5d8f;
             border-radius: 20px;
-            padding: 24px;
-            border: 1px solid rgba(255,255,255,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            padding: 18px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+            border: 2px solid rgba(255,255,255,0.2);
         }
-        
-        .app-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 30px rgba(0,0,0,0.15);
         }
-        
-        .app-icon {
+
+        /* Bordes especiales */
+        .card.new {
+            border: 3px solid #e6b422;
+            box-shadow: 0 8px 20px rgba(230,180,34,0.2);
+        }
+
+        .card.popular {
+            border: 3px solid #9b6bff;
+            box-shadow: 0 8px 20px rgba(155,107,255,0.2);
+        }
+
+        /* Nombre de la app */
+        .card h4 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            text-align: center;
+            margin-bottom: 16px;
+            letter-spacing: -0.3px;
+        }
+
+        /* Icono */
+        .card-icon {
+            background: white;
             width: 80px;
             height: 80px;
-            background: linear-gradient(135deg, #FFC0CB, #FF8C9E);
-            border-radius: 18px;
+            margin: 0 auto 18px;
+            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.5rem;
-            margin-bottom: 20px;
+            font-size: 3rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
-        
-        .app-name {
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-bottom: 8px;
-        }
-        
-        .app-version {
-            color: #FFC0CB;
+
+        /* Descripción (fondo blanco, texto azul) */
+        .card-description {
+            background: white;
+            color: #1a5d8f;
+            padding: 14px;
+            border-radius: 14px;
             font-size: 0.85rem;
-            margin-bottom: 12px;
-            display: inline-block;
-            background: rgba(255,192,203,0.2);
-            padding: 4px 10px;
-            border-radius: 20px;
+            line-height: 1.4;
+            margin: 12px 0;
+            flex-grow: 1;
         }
-        
-        .app-description {
-            color: #aaa;
-            font-size: 0.9rem;
-            line-height: 1.5;
-            margin-bottom: 20px;
-        }
-        
-        .btn-download {
-            display: inline-block;
-            background: linear-gradient(135deg, #FFC0CB, #FF8C9E);
-            color: #1a1a2e;
-            text-decoration: none;
-            padding: 12px 24px;
-            border-radius: 30px;
-            font-weight: bold;
-            transition: opacity 0.3s ease;
-        }
-        
-        .btn-download:hover {
-            opacity: 0.9;
-        }
-        
-        footer {
+
+        /* Botón descarga */
+        .card-btn {
+            background: white;
+            color: #1a5d8f;
             text-align: center;
-            padding: 40px 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: #666;
-            margin-top: 20px;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 40px;
+            font-weight: 700;
+            margin-top: 12px;
+            transition: 0.2s;
+            border: none;
+            cursor: pointer;
         }
-        
-        .badge {
+
+        .card-btn:hover {
+            background: #eef2f7;
+        }
+
+        /* Enlaces y contacto */
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .btn-wa, .btn-gh {
             display: inline-block;
-            background: rgba(255,255,255,0.1);
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            margin-top: 10px;
+            padding: 12px 24px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
         }
-        
-        @media (max-width: 768px) {
-            h1 { font-size: 2rem; }
-            .apps-grid { grid-template-columns: 1fr; }
+
+        .btn-wa {
+            background: #25D366;
+            color: white;
+        }
+
+        .btn-gh {
+            background: #1a2a3a;
+            color: white;
+        }
+
+        hr {
+            margin: 32px 0;
+            border: none;
+            height: 1px;
+            background: #e2e8f0;
+        }
+
+        footer {
+            background: #f8fafc;
+            padding: 24px 32px;
+            border-radius: 24px;
+            margin-top: 32px;
+            font-size: 0.8rem;
+            color: #4a627a;
+        }
+
+        @media (max-width: 700px) {
+            body { padding: 0 12px; }
+            .content { padding: 0 20px 30px; }
+            .main-header h1 { font-size: 1.8rem; }
+            h2 { font-size: 1.4rem; }
+            .card h4 { font-size: 1.2rem; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>✨ Yozora Catalog ✨</h1>
-            <p class="subtitle">Aplicaciones desarrolladas con ❤️ desde Cuba</p>
-            <p class="badge">Dreamer · Yozora · 2026</p>
-        </header>
-        
-        <div class="apps-grid">
-            <!-- Baby Medina -->
-            <div class="app-card">
-                <div class="app-icon">🍼</div>
-                <h2 class="app-name">Baby Medina</h2>
-                <span class="app-version">v1.0.1</span>
-                <p class="app-description">
-                    Tienda online de productos infantiles. Catálogo por categorías, 
-                    carrito de compras, envío por WhatsApp y soporte offline.
-                </p>
-                <a href="https://github.com/luisenriquepupo16-rgb/Yozora-Catalog/releases/download/v1.0.0/baby_medina_v1.0.1_release.apk" class="btn-download">
-                    📲 Descargar APK
-                </a>
+<div class="container">
+    <div class="main-header">
+        <h1>Yozora Store</h1>
+        <p>Yozora Store es una página donde podrás descargar aplicaciones personales, con funcionalidades diversas y personalizables, de una manera sencilla y agradable.</p>
+    </div>
+
+    <div class="content">
+        <!-- Catálogo de productos -->
+        <section>
+            <h2>Catálogo de productos</h2>
+
+            <!-- Pestañas -->
+            <div class="tabs" id="tabContainer">
+                <button class="tab-btn active" data-tab="populares">Populares</button>
+                <button class="tab-btn" data-tab="nuevas">Nuevas</button>
+                <button class="tab-btn" data-tab="todas">Todas</button>
             </div>
-            
-            <!-- Más apps próximamente -->
-        </div>
-        
+
+            <!-- Búsqueda y filtros -->
+            <div class="search-filter-bar">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Buscar aplicación...">
+                </div>
+                <div class="filter-box">
+                    <select id="categoryFilter">
+                        <option value="todas">Todas las categorías</option>
+                        <option value="tienda">Tienda / Comercio</option>
+                        <option value="infantil">Infantil</option>
+                        <option value="utilidades">Utilidades</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Grid de tarjetas -->
+            <div id="cardsGrid" class="cards-grid">
+                <!-- Las tarjetas se llenarán con JavaScript desde la base de datos de apps -->
+            </div>
+        </section>
+
+        <!-- Encarga tu propia aplicación -->
+        <section>
+            <h2>Encarga tu propia aplicación</h2>
+            <p>Si quieres obtener una aplicación para tu propio uso o negocio, puedes encargarla haciendo contacto con el desarrollador.</p>
+            <div class="contact-links">
+                <a href="https://wa.me/5359073118?text=Hola,%20quiero%20consultar%20sobre%20el%20desarrollo%20de%20una%20aplicación." class="btn-wa" target="_blank">📲 Contactar por WhatsApp</a>
+            </div>
+
+            <h3>¿Qué puedes personalizar?</h3>
+            <ul style="margin-left: 24px; color: #2c3e50;">
+                <li><strong>Apariencia:</strong> colores, tipografía, organización de los elementos.</li>
+                <li><strong>Funcionalidad:</strong> catálogo de productos, carrito de compras, pedidos por WhatsApp, búsquedas, filtros, estadísticas básicas.</li>
+                <li><strong>Objetivo:</strong> negocio, emprendimiento, uso personal, educativo o promocional.</li>
+                <li><strong>Características detalladas:</strong> modo offline, lista de deseos, historial de pedidos, panel de administración sencillo.</li>
+            </ul>
+            <p style="margin-top: 16px;"><strong>⚠️ Advertencia:</strong> No se garantiza poder crear la aplicación con todas las características si estas superan un cierto nivel de complejidad o permisos de uso restringidos. Cada proyecto se evalúa caso por caso.</p>
+        </section>
+
+        <!-- Eres desarrollador -->
+        <section>
+            <h2>Eres un desarrollador?</h2>
+            <p>Si eres desarrollador y estás interesado en intercambiar experiencias, puedes contactarme mediante un issue de GitHub. Se acepta feedback y se agradece cualquier sugerencia para mejorar.</p>
+            <div class="contact-links">
+                <a href="https://github.com/luisenriquepupo16-rgb" class="btn-gh" target="_blank">🐙 GitHub</a>
+            </div>
+        </section>
+
+        <!-- Contacto -->
+        <section>
+            <h2>Contacto</h2>
+            <div class="contact-links">
+                <a href="https://wa.me/5359073118" class="btn-wa" target="_blank">📲 WhatsApp</a>
+                <a href="https://github.com/luisenriquepupo16-rgb" class="btn-gh" target="_blank">🐙 GitHub</a>
+            </div>
+        </section>
+
+        <!-- Para Cuba -->
+        <section>
+            <h2>Para Cuba</h2>
+            <p>Esta es una página creada en Cuba, para usuarios cubanos. Se busca mejorar siempre un poco, en cualquier ámbito de la vida, y la tecnología no es la excepción.</p>
+        </section>
+
+        <!-- Términos y condiciones -->
+        <section>
+            <h2>Condiciones de uso</h2>
+            <ol style="margin-left: 24px; color: #2c3e50;">
+                <li>Todas las aplicaciones aquí expuestas son de libre descarga y distribución. No se alienta ninguna forma de monetización o mal uso de las mismas.</li>
+                <li>Las aplicaciones que sean encargadas para desarrollo serán expuestas aquí salvo excepciones. Las excepciones se verán caso por caso.</li>
+                <li>El código fuente no se comparte a menos que se acuerde explícitamente.</li>
+                <li>Los tiempos de desarrollo se acuerdan antes de empezar, sin presiones innecesarias.</li>
+            </ol>
+        </section>
+
         <footer>
-            <p>¿Problemas con una app? Abre un issue en <a href="https://github.com/luisenriquepupo16-rgb/Yozora-Catalog" style="color:#FFC0CB">GitHub</a></p>
-            <p style="margin-top: 10px; font-size: 0.8rem;">Hecho con paciencia y café ☕</p>
+            <p>Yozora Store — Aplicaciones sencillas, útiles y hechas con claridad.<br>Desarrollador: Yozora (Dreamer) · Cuba · 2026</p>
         </footer>
     </div>
+</div>
+
+<script>
+    // Base de datos de aplicaciones (solo Baby Medina por ahora, se pueden añadir más)
+    const appsDatabase = [
+        {
+            id: 1,
+            name: "Baby Medina",
+            category: "tienda",
+            tags: ["infantil", "tienda", "offline"],
+            type: "popular",  // popular, new, normal
+            description: "Tienda online para productos infantiles. Catálogo por categorías, carrito de compras, envío por WhatsApp y modo offline.",
+            version: "v1.0.1",
+            icon: "🍼",
+            downloadUrl: "https://github.com/luisenriquepupo16-rgb/Yozora-Catalog/releases/download/v1.0.0/baby_medina_v1.0.1_release.apk"
+        }
+        // Aquí se pueden añadir más apps fácilmente
+    ];
+
+    let currentTab = "populares";
+    let currentSearch = "";
+    let currentCategory = "todas";
+
+    function filterApps() {
+        let filtered = [...appsDatabase];
+
+        // Filtro por pestaña
+        if (currentTab === "populares") {
+            filtered = filtered.filter(app => app.type === "popular");
+        } else if (currentTab === "nuevas") {
+            filtered = filtered.filter(app => app.type === "new");
+        }
+
+        // Filtro por búsqueda
+        if (currentSearch.trim() !== "") {
+            filtered = filtered.filter(app => 
+                app.name.toLowerCase().includes(currentSearch.toLowerCase())
+            );
+        }
+
+        // Filtro por categoría
+        if (currentCategory !== "todas") {
+            filtered = filtered.filter(app => app.category === currentCategory);
+        }
+
+        return filtered;
+    }
+
+    function renderCards() {
+        const apps = filterApps();
+        const grid = document.getElementById("cardsGrid");
+        grid.innerHTML = "";
+
+        if (apps.length === 0) {
+            grid.innerHTML = "<p style='grid-column:1/-1; text-align:center; color:#4a627a;'>No hay aplicaciones en esta sección.</p>";
+            return;
+        }
+
+        apps.forEach(app => {
+            const card = document.createElement("div");
+            card.className = "card";
+            if (app.type === "new") card.classList.add("new");
+            if (app.type === "popular") card.classList.add("popular");
+
+            card.innerHTML = `
+                <h4>${app.name}</h4>
+                <div class="card-icon">${app.icon}</div>
+                <div class="card-description">
+                    ${app.description}<br>
+                    <small>Versión: ${app.version}</small>
+                </div>
+                <a href="${app.downloadUrl}" class="card-btn" download>📥 Descargar APK</a>
+            `;
+            grid.appendChild(card);
+        });
+    }
+
+    // Eventos de pestañas
+    document.querySelectorAll(".tab-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+            document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            currentTab = btn.getAttribute("data-tab");
+            renderCards();
+        });
+    });
+
+    // Búsqueda
+    const searchInput = document.getElementById("searchInput");
+    searchInput.addEventListener("input", (e) => {
+        currentSearch = e.target.value;
+        renderCards();
+    });
+
+    // Filtro por categoría
+    const categoryFilter = document.getElementById("categoryFilter");
+    categoryFilter.addEventListener("change", (e) => {
+        currentCategory = e.target.value;
+        renderCards();
+    });
+
+    // Render inicial
+    renderCards();
+</script>
 </body>
 </html>
