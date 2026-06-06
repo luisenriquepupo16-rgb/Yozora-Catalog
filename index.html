@@ -27,7 +27,6 @@
             box-shadow: 0 2px 12px rgba(0,0,0,0.04);
         }
 
-        /* Encabezado principal */
         .main-header {
             background: #1a5d8f;
             color: white;
@@ -49,12 +48,10 @@
             max-width: 700px;
         }
 
-        /* Contenido interior */
         .content {
             padding: 0 32px 40px;
         }
 
-        /* Secciones */
         section {
             margin-bottom: 48px;
         }
@@ -75,7 +72,6 @@
             font-weight: 600;
         }
 
-        /* Pestañas */
         .tabs {
             display: flex;
             flex-wrap: wrap;
@@ -106,7 +102,6 @@
             background: #e2e8f0;
         }
 
-        /* Barra de búsqueda y filtros */
         .search-filter-bar {
             display: flex;
             flex-wrap: wrap;
@@ -139,7 +134,6 @@
             cursor: pointer;
         }
 
-        /* Grid de tarjetas estilo Yu-Gi-Oh */
         .cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -147,7 +141,6 @@
             margin-top: 16px;
         }
 
-        /* Tarjeta - como carta de Yu-Gi-Oh */
         .card {
             background: #1a5d8f;
             border-radius: 20px;
@@ -164,7 +157,6 @@
             box-shadow: 0 18px 30px rgba(0,0,0,0.15);
         }
 
-        /* Bordes especiales */
         .card.new {
             border: 3px solid #e6b422;
             box-shadow: 0 8px 20px rgba(230,180,34,0.2);
@@ -175,7 +167,6 @@
             box-shadow: 0 8px 20px rgba(155,107,255,0.2);
         }
 
-        /* Nombre de la app */
         .card h4 {
             font-size: 1.5rem;
             font-weight: 700;
@@ -185,7 +176,6 @@
             letter-spacing: -0.3px;
         }
 
-        /* Icono */
         .card-icon {
             background: white;
             width: 80px;
@@ -199,7 +189,6 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
-        /* Descripción (fondo blanco, texto azul) */
         .card-description {
             background: white;
             color: #1a5d8f;
@@ -211,7 +200,6 @@
             flex-grow: 1;
         }
 
-        /* Botón descarga */
         .card-btn {
             background: white;
             color: #1a5d8f;
@@ -230,7 +218,6 @@
             background: #eef2f7;
         }
 
-        /* Enlaces y contacto */
         .contact-links {
             display: flex;
             flex-wrap: wrap;
@@ -284,23 +271,20 @@
 <body>
 <div class="container">
     <div class="main-header">
-        <h1>Yozora Store</h1>
+        <h1>🐱 Yozora Store</h1>
         <p>Yozora Store es una página donde podrás descargar aplicaciones personales, con funcionalidades diversas y personalizables, de una manera sencilla y agradable.</p>
     </div>
 
     <div class="content">
-        <!-- Catálogo de productos -->
         <section>
             <h2>Catálogo de productos</h2>
 
-            <!-- Pestañas -->
             <div class="tabs" id="tabContainer">
                 <button class="tab-btn active" data-tab="populares">Populares</button>
                 <button class="tab-btn" data-tab="nuevas">Nuevas</button>
                 <button class="tab-btn" data-tab="todas">Todas</button>
             </div>
 
-            <!-- Búsqueda y filtros -->
             <div class="search-filter-bar">
                 <div class="search-box">
                     <input type="text" id="searchInput" placeholder="Buscar aplicación...">
@@ -315,18 +299,14 @@
                 </div>
             </div>
 
-            <!-- Grid de tarjetas -->
-            <div id="cardsGrid" class="cards-grid">
-                <!-- Las tarjetas se llenarán con JavaScript desde la base de datos de apps -->
-            </div>
+            <div id="cardsGrid" class="cards-grid"></div>
         </section>
 
-        <!-- Encarga tu propia aplicación -->
         <section>
             <h2>Encarga tu propia aplicación</h2>
             <p>Si quieres obtener una aplicación para tu propio uso o negocio, puedes encargarla haciendo contacto con el desarrollador.</p>
             <div class="contact-links">
-                <a href="https://wa.me/5359073118?text=Hola,%20quiero%20consultar%20sobre%20el%20desarrollo%20de%20una%20aplicación." class="btn-wa" target="_blank">📲 Contactar por WhatsApp</a>
+                <a href="https://wa.me/5359073118" class="btn-wa" target="_blank">📲 Contactar por WhatsApp</a>
             </div>
 
             <h3>¿Qué puedes personalizar?</h3>
@@ -339,7 +319,6 @@
             <p style="margin-top: 16px;"><strong>⚠️ Advertencia:</strong> No se garantiza poder crear la aplicación con todas las características si estas superan un cierto nivel de complejidad o permisos de uso restringidos. Cada proyecto se evalúa caso por caso.</p>
         </section>
 
-        <!-- Eres desarrollador -->
         <section>
             <h2>Eres un desarrollador?</h2>
             <p>Si eres desarrollador y estás interesado en intercambiar experiencias, puedes contactarme mediante un issue de GitHub. Se acepta feedback y se agradece cualquier sugerencia para mejorar.</p>
@@ -348,7 +327,6 @@
             </div>
         </section>
 
-        <!-- Contacto -->
         <section>
             <h2>Contacto</h2>
             <div class="contact-links">
@@ -357,13 +335,11 @@
             </div>
         </section>
 
-        <!-- Para Cuba -->
         <section>
             <h2>Para Cuba</h2>
             <p>Esta es una página creada en Cuba, para usuarios cubanos. Se busca mejorar siempre un poco, en cualquier ámbito de la vida, y la tecnología no es la excepción.</p>
         </section>
 
-        <!-- Términos y condiciones -->
         <section>
             <h2>Condiciones de uso</h2>
             <ol style="margin-left: 24px; color: #2c3e50;">
@@ -375,26 +351,35 @@
         </section>
 
         <footer>
-            <p>Yozora Store — Aplicaciones sencillas, útiles y hechas con claridad.<br>Desarrollador: Yozora (Dreamer) · Cuba · 2026</p>
+            <p>🐱 Yozora Store — Aplicaciones sencillas, útiles y hechas con claridad.<br>Desarrollador: Yozora (Dreamer) · Cuba · 2026</p>
         </footer>
     </div>
 </div>
 
 <script>
-    // Base de datos de aplicaciones (solo Baby Medina por ahora, se pueden añadir más)
     const appsDatabase = [
         {
             id: 1,
             name: "Baby Medina",
             category: "tienda",
             tags: ["infantil", "tienda", "offline"],
-            type: "popular",  // popular, new, normal
+            type: "popular",
             description: "Tienda online para productos infantiles. Catálogo por categorías, carrito de compras, envío por WhatsApp y modo offline.",
-            version: "v1.0.1",
+            version: "v1.0.2",
             icon: "🍼",
-            downloadUrl: "https://github.com/luisenriquepupo16-rgb/Yozora-Catalog/releases/download/v1.0.0/baby_medina_v1.0.1_release.apk"
+            downloadUrl: "https://github.com/luisenriquepupo16-rgb/Yozora-Catalog/releases/download/baby-medina-v1.0.2/baby_medina_v1.0.2.apk"
+        },
+        {
+            id: 2,
+            name: "Yozora Store",
+            category: "utilidades",
+            tags: ["tienda", "utilidades", "offline"],
+            type: "new",
+            description: "Catálogo de aplicaciones de Yozora. Descarga todas mis apps desde un solo lugar. Con soporte offline y actualizaciones automáticas.",
+            version: "v1.0.0",
+            icon: "🐱",
+            downloadUrl: "https://github.com/luisenriquepupo16-rgb/Yozora-Catalog/releases/download/yozora-store-v1.0.0/yozora_store_v1.0.0.apk"
         }
-        // Aquí se pueden añadir más apps fácilmente
     ];
 
     let currentTab = "populares";
@@ -404,21 +389,18 @@
     function filterApps() {
         let filtered = [...appsDatabase];
 
-        // Filtro por pestaña
         if (currentTab === "populares") {
             filtered = filtered.filter(app => app.type === "popular");
         } else if (currentTab === "nuevas") {
             filtered = filtered.filter(app => app.type === "new");
         }
 
-        // Filtro por búsqueda
         if (currentSearch.trim() !== "") {
             filtered = filtered.filter(app => 
                 app.name.toLowerCase().includes(currentSearch.toLowerCase())
             );
         }
 
-        // Filtro por categoría
         if (currentCategory !== "todas") {
             filtered = filtered.filter(app => app.category === currentCategory);
         }
@@ -455,7 +437,6 @@
         });
     }
 
-    // Eventos de pestañas
     document.querySelectorAll(".tab-btn").forEach(btn => {
         btn.addEventListener("click", () => {
             document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
@@ -465,21 +446,18 @@
         });
     });
 
-    // Búsqueda
     const searchInput = document.getElementById("searchInput");
     searchInput.addEventListener("input", (e) => {
         currentSearch = e.target.value;
         renderCards();
     });
 
-    // Filtro por categoría
     const categoryFilter = document.getElementById("categoryFilter");
     categoryFilter.addEventListener("change", (e) => {
         currentCategory = e.target.value;
         renderCards();
     });
 
-    // Render inicial
     renderCards();
 </script>
 </body>
