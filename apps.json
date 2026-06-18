@@ -5,12 +5,40 @@
     "category": "tienda",
     "tags": ["offline", "popular"],
     "type": "popular",
-    "description": "Tienda online para productos infantiles...",
+    "description": "Tienda online para productos infantiles. Catálogo por categorías, carrito de compras, envío por WhatsApp y modo offline.",
     "version": "v1.1.0",
     "updated": "2026-06-18",
     "size": 4.2,
     "icon": "🍼",
-    "downloadUrl": "https://...",
+    "downloadUrl": "https://github.com/luisenriquepupo16-rgb/Yozora-Catalog/releases/download/baby-medina-v1.1.0/baby_medina_v1.1.0.apk",
     "upcoming": false
+  },
+  {
+    "id": 2,
+    "name": "Yozora Store",
+    "category": "utilidades",
+    "tags": ["offline", "new"],
+    "type": "new",
+    "description": "Catálogo de aplicaciones de Yozora. Descarga todas mis apps desde un solo lugar. Con soporte offline y actualizaciones automáticas.",
+    "version": "v1.1.0",
+    "updated": "2026-06-18",
+    "size": 3.8,
+    "icon": "🐱",
+    "downloadUrl": "https://github.com/luisenriquepupo16-rgb/Yozora-Catalog/releases/download/yozora-store-v1.1.0/yozora_store_v1.1.0.apk",
+    "upcoming": false
+  },
+  {
+    "id": 3,
+    "name": "KeyChain",
+    "category": "utilidades",
+    "tags": ["popular", "offline"],
+    "type": "popular",
+    "description": "Gestor de contraseñas seguro y offline. Guarda tus claves con cifrado local. Próximamente disponible.",
+    "version": "v1.0.0",
+    "updated": "2026-06-18",
+    "size": 2.1,
+    "icon": "🔑",
+    "downloadUrl": "#",
+    "upcoming": true
   }
 ]
