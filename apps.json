@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "name": "Baby Medina",
+    "category": "tienda",
+    "tags": ["offline", "popular"],
+    "type": "popular",
+    "description": "Tienda online para productos infantiles...",
+    "version": "v1.1.0",
+    "updated": "2026-06-18",
+    "size": 4.2,
+    "icon": "🍼",
+    "downloadUrl": "https://...",
+    "upcoming": false
+  }
+]
